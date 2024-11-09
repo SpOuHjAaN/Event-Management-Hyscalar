@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendee Engagement Features</title>
+    <link rel="stylesheet" href="attendee.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+   
+     <!-- Navigation Bar -->
+  <header>
+    <div id="header">
+        <h1>Event Engagement Hub</h1>
+    </div>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="create-event.html">Create Event</a></li>
+        <li><a href="user_management.html">User Management</a></li>
+        <li><a href="event_management.html">Event Management</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <!-- Attend List Section -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Attend List</h5>
+                <table id="attend-list" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Attendee Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Attendee list data will be populated here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional engagement features -->
+    <div id="engagement-section">
+        <div class="container">
+            <h2>Discussion Forum</h2>
+            <div id="discussion-forum">
+                <textarea id="forum-input" placeholder="Join the discussion..." rows="4"></textarea>
+                <button id="post-button">Post</button>
+                <div id="forum-posts"></div>
+            </div>
+
+            <h2>Poll</h2>
+            <div id="poll">
+                <label>What is your favorite feature of the event?</label>
+                <select id="poll-options">
+                    <option value="">Select an option</option>
+                    <option value="networking">Networking</option>
+                    <option value="workshops">Workshops</option>
+                    <option value="keynotes">Keynotes</option>
+                </select>
+                <button id="poll-button">Vote</button>
+                <div id="poll-result"></div>
+            </div>
+
+            <h2>Live Q&A</h2>
+            <div id="qa">
+                <textarea id="qa-input" placeholder="Ask your question..." rows="2"></textarea>
+                <button id="ask-button">Ask</button>
+                <div id="qa-questions"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Event Management System</p>
+    </footer>
+
+    <!-- jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="attendee.js"></script>
+</body>
+</html>

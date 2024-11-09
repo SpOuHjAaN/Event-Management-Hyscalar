@@ -1,0 +1,235 @@
+/* General Styles */
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Event card styling */
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.card-text {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Layout adjustments */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* CSS for the overlay */
+.overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 10;
+}
+
+/* CSS for the booking form modal */
+.booking-form {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  max-width: 90%;
+  z-index: 11; /* Above the overlay */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Discover Section */
+#event-discover {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+#event-discover h2 {
+  font-size: 2.5rem;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+.navigate-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.navigate-button:hover {
+  background-color: #0056b3;
+}
+
+.bg-primary-header nav {
+  position: absolute;
+  top: 20px; /* Positioning the nav at the top */
+  right: 20px; /* Positioning the nav to the right */
+  display: flex;
+}
+
+/* Styling individual links with separate underline effects */
+.bg-primary-header nav a {
+  color: #0d0d0c;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 1em;
+  position: relative; /* For the underline effect */
+}
+
+.bg-primary-header nav a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.5s; /* Smooth transition */
+}
+
+/* Show underline on hover for each link individually */
+.bg-primary-header nav a:hover::after {
+  width: 100%; /* Full width underline on hover */
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#event-discovery {
+  max-width: 800px;
+  width: 90%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+}
+
+#event-discovery h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Search Form Styling */
+#searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#searchForm input[type="text"],
+#searchForm input[type="date"],
+#searchForm button {
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  width: calc(33.33% - 10px); /* Responsive width for three fields in a row */
+}
+
+#searchForm input[type="text"]:focus,
+#searchForm input[type="date"]:focus {
+  outline: none;
+  border-color: #cce813;
+}
+
+#searchForm button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 12px 20px;
+}
+
+#searchForm button:hover {
+  background-color: #555;
+}
+
+
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5em;
+    }
+    
+    .card-title {
+      font-size: 1.2em;
+    }
+    
+    .card-text {
+      font-size: 0.9em;
+    }
+  }
+  

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Management</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="event_management.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="create-event.html">Create Event</a></li>
+        <li><a href="user_management.html">User Management</a></li>
+        <li><a href="event_management.html">Event Management</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mt-5">
+    <div class="row">
+      
+      <!-- Event List Section -->
+      <div class="col-md-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Event List</h5>
+            <table id="event-list" class="display" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Event ID</th>
+                  <th>Event Name</th>
+                  <th>Date</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>Capacity</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Event list data will be populated here dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <div class="row">
+          <!-- Event ID Input -->
+          <div class="col-md-4 mb-4">
+            <label for="event-id" class="form-label">Enter Event ID</label>
+            <input type="text" id="event-id" class="form-control" placeholder="Event ID">
+          </div>
+          <div class="col-md-2 d-flex align-items-end">
+            <button id="submit-event-id" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+  <script src="event_management.js"></script>
+</body>
+</html>

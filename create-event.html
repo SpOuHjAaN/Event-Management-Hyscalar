@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event - Event Management System</title>
+  <link rel="stylesheet" href="create-event.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <h1>Create New Event</h1>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="create-event.html">Create Event</a></li>
+        <li><a href="user_management.html">User Management</a></li>
+        <li><a href="event_management.html">Event Management</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Create Event Form Section -->
+  <section id="create-event-section">
+    <div class="container">
+      <form id="createEventForm" action="/create-event" method="POST">
+
+        <label for="event-category">Event Category:</label>
+        <select id="event-category" name="event_category" required>
+          <option value="" disabled selected>Select a category</option>
+          <option value="Conference">Conference</option>
+          <option value="Concert">Concert</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Seminar">Seminar</option>
+          <option value="Sports">Sports</option>
+          <option value="Festival">Festival</option>
+        </select>
+        
+        <label for="event-name">Event Name:</label>
+        <input type="text" id="event-name" name="event_name" placeholder="Enter event name" required>
+
+        <label for="event-location">Location:</label>
+        <input type="text" id="event-location" name="event_location" placeholder="Enter event location" required>
+
+        <label for="event-date">Event Date:</label>
+        <input type="date" id="event-date" name="event_date" required>
+
+        <label for="event-capacity">Capacity:</label>
+        <input type="number" id="event-capacity" name="event_capacity" placeholder="Enter max attendees" required>
+
+        <label for="event-price">Event Price:</label>
+        <input type="number" id="event-price" name="event_price" placeholder="Enter ticket price" required>
+
+        
+        <label for="event-description">Description:</label>
+        <textarea id="event-description" name="event_description" placeholder="Describe the event" rows="4" required></textarea>
+
+        
+        <button type="submit">Create Event</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="create-event.js"></script>
+</body>
+</html>

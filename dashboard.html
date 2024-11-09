@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Page</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="create-event.html">Create Event</a></li>
+        <li><a href="user_management.html">User Management</a></li>
+        <li><a href="event_management.html">Event Management</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mt-5">
+    <div class="row">
+      <!-- Users Count Card -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Users Count</h5>
+            <p class="card-text">Total registered users: <span id="user-count">0</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events Card -->
+      <div class="col-md-8 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Events</h5>
+            <div class="row">
+              <!-- Left Side: Total Events -->
+              <div class="col-6">
+                <h6>Total Events</h6>
+                <p>Total events created: <span id="total-events">0</span></p>
+              </div>
+              <!-- Right Side: Upcoming Events -->
+              <div class="col-6">
+                <h6>Upcoming Events</h6>
+                <table id="upcoming-events-table" class="display" style="width:100%">
+                  <thead>
+                      <tr>
+                          <th>Event Name</th>
+                          <th>Date</th>
+                          <th>Location</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Upcoming events will be dynamically loaded here -->
+                  </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- jQuery (make sure jQuery is loaded first) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables JS (load after jQuery) -->
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="dashboard.js"></script>
+</body>
+</html>

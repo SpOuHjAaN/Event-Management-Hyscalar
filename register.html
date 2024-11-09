@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="register.css">
+  <script src="https://kit.fontawesome.com/6705a2d64f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="register-header">
+    <div class="container">
+      <h1>Register Section!!</h1>
+      <nav id="navbar"></nav>
+    </div>
+  </div>
+
+  <div id="register-section">
+    <h2>Register</h2>
+    <div class="container">
+      <div class="row">
+        
+
+        <!-- Registration Form Column -->
+        <div class="register-col-2">
+          <form id="registerForm">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+          </form>
+
+          <!-- Divider for Social Login Option -->
+          <div class="divider">OR</div>
+
+          <!-- Google Login Button -->
+          <div id="g_id_onload"
+     data-client_id="354207534043-5ph7nrt5j2i19587o7iikv6jo7mak9pg.apps.googleusercontent.com"
+     data-context="signup"
+     data-ux_mode="popup"
+     data-callback="handleGoogleSignIn"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin" data-type="standard"></div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Event Management System</p>
+  </footer>
+
+  <script src="register.js"></script>
+</body>
+</html>

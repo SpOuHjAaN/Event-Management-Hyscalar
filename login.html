@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Event Management System</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <!-- Header -->
+  <div id="login-header">
+    <div class="container">
+      <h1>Login Section !!</h1>
+    <nav id="navbar"></nav>
+
+    </div>
+  </div>
+
+  <!-- Login Form Section -->
+  <div id="login-section">
+    <h2>Login</h2>
+
+    <div class="container">
+      <div class="row">
+        <!-- Form Column -->
+        <div class="login-col-2">
+          <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <!-- Login Button (shown when not logged in) -->
+            <button id="loginButton">Login</button>
+
+            <!-- Logout Button (shown when logged in) -->
+            <button id="logoutButton" style="display:none;">Logout</button>
+
+
+          </form>
+
+          <!-- Move p and a elements inside the form column -->
+          <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+        </div>  
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Event Management System</p>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>

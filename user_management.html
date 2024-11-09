@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="user_management.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<header>
+    <nav class="top-nav">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="create-event.html">Create Event</a></li>
+        <li><a href="user_management.html">User Management</a></li>
+        <li><a href="event_management.html">Event Management</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="container">
+    <h1>User Management</h1>
+    <table id="userTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically loaded here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="user_management.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Navbar Styling */
+#navbar {
+  position: absolute; /* Positioning relative to the header */
+  top: 20px; /* Adjust top positioning */
+  right: 20px; /* Adjust right positioning */
+  display: flex;
+  gap: 15px; /* Add space between links */
+}
+
+#navbar a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+#navbar a:hover {
+  color: #ff004f; /* Change color on hover */
+}
+
+
+/* Header Styling */
+#register-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#register-header h1 {
+  font-size: 2.5rem;
+  color: #2d2d44;
+}
+
+/* Register Section Styling */
+#register-section {
+  width: 100%;
+  max-width: 600px; /* Limit width */
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#register-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* Registration Form Styling */
+#registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#registerForm input {
+  padding: 0.75em;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+#registerForm input:focus {
+  outline: none;
+  border-color: #ffdd57;
+}
+
+#registerForm button {
+  padding: 0.75em;
+  background-color: #2d2d44;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#registerForm button:hover {
+  background-color: #3b3b6d;
+}
+
+/* Divider */
+.divider {
+  margin: 1em 0;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+/* Google Button Styling */
+.google-btn {
+  padding: 1em;
+  width: 100%;
+  background-color: #db4437;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  transition: background-color 0.3s;
+}
+
+.google-btn:hover {
+  background-color: #c1351d;
+}
+
+.google-btn i {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #f1f1f1;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #register-section {
+    width: 90%;
+    padding: 1.5em;
+  }
+}

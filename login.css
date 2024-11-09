@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4eaea;
+    color: #0d0d0e;
+}
+#login-header {
+    background-color: #cce813;
+    padding: 20px;
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    height: 100px;           
+  }
+  
+  #login-header h1 {
+    font-size: 2.5em;
+    color: #080808;
+    margin: 0;
+  }
+  
+  /* Login Section Container */
+  #login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #login-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #5b2121;
+  }
+  
+  /* Login Form Container */
+  .container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 300px;
+  }
+  
+  /* Image Column */
+  .login-col-1 {
+    flex-basis: 40%;
+    order: 1; /* Places the image column on the right */
+  }
+  
+  .login-col-1 img {
+    width: 100%;
+    height: 65vh;
+    border-radius: 15px;
+    
+  }
+  
+  /* Form Column */
+  .login-col-2 {
+    flex-basis: 55%;
+    order: 2; /* Places the form column on the left */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Form Styling */
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px; /* Increased padding for larger form appearance */
+  width: 400px; /* Set a specific width to increase the form size */
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Center the form on the page */
+#loginFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full-height container */
+  background-color: #f5f5f5; /* Light background for contrast */
+}
+
+  #loginForm label {
+    font-size: 1em;
+    color: #333;
+  }
+  
+  #loginForm input[type="email"],
+  #loginForm input[type="password"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #loginForm input:focus {
+    border-color: #cce813;
+    outline: none;
+  }
+  
+  #loginForm button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #cce813;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #loginForm button:hover {
+    background-color: #b2d30e;
+  }
+  
+  /* Register Link */
+  #login-section p {
+    margin-top: 15px;
+    font-size: 1em;
+    color: #0f0e0e;
+    text-align: center;
+  }
+  
+  #login-section a {
+    color: #121211;
+    text-decoration: none;
+  }
+  
+  #login-section a:hover {
+    text-decoration: underline;
+  }
+
+  #login-header nav {
+    position: absolute;
+    top: 20px; /* Positioning the nav at the top */
+    right: 20px; /* Positioning the nav to the right */
+    display: flex;
+  }
+  
+  /* Styling individual links with separate underline effects */
+  #login-header nav a {
+    color: #0d0d0c;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 1em;
+    position: relative; /* For the underline effect */
+  }
+  
+  #login-header nav a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.5s; /* Smooth transition */
+  }
+  
+  /* Show underline on hover for each link individually */
+  #login-header nav a:hover::after {
+    width: 100%; /* Full width underline on hover */
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 160px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    color: #666;
+}

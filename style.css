@@ -1,0 +1,192 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body Styling */
+body {
+  background-color: #f4f4f9;
+  color: #1a1a1a;
+}
+
+/* Header Styling */
+#header {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  background-color: #2d2d44;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  
+}
+
+#header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+  color: #ffcc66;
+}
+
+/* Navbar Styling */
+#header nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 1.5em;
+}
+
+#header nav a {
+  color: #ffcc66;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.25em;
+  position: relative;
+}
+
+#header nav a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: #ffcc66;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  transition: width 0.3s;
+}
+
+#header nav a:hover::after {
+  width: 100%;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9em;
+}
+
+/* Event Discovery Section */
+#event-discovery {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#event-discovery h2 {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 1.8rem;
+  margin-bottom: 1em;
+}
+
+#event-discovery form {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#event-discovery input, #event-discovery button {
+  padding: 0.75em 1.5em;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#event-discovery input {
+  border: 1px solid #ddd;
+}
+
+#event-discovery input:focus {
+  outline: none;
+  border-color: #ffcc66;
+}
+
+#event-discovery button {
+  background-color: #2d2d44;
+  color: #ffcc66;
+  border: none;
+  cursor: pointer;
+}
+
+#event-discovery button:hover {
+  background-color: #3a3a58;
+}
+
+/* Event Results Section */
+#event-results {
+  max-width: 900px;
+  margin: 2em auto;
+}
+
+#eventCardsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em auto;
+  max-width: 1200px; /* Optional max width for central alignment */
+  padding: 1em;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5em; /* Space between cards */
+  margin-top: 1.5em;
+}
+/* Event Card Styling */
+.event-card {
+  background-color: #ffffff;
+  margin: 1.5em 0;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.event-card h3 {
+  color: #2d2d44;
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+.event-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.event-card button {
+  margin-top: 1em;
+  padding: 0.5em 1.5em;
+  background-color: #ffcc66;
+  color: #2d2d44;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.event-card button:hover {
+  background-color: #e6b257;
+}

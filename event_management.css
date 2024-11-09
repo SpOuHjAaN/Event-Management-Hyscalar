@@ -1,0 +1,123 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+/* Navigation Styling */
+.top-nav {
+    background-color: #007bff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.top-nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.top-nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.top-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.top-nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Card Styling */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-title{
+    text-align: center;
+    color: #c82333;
+    gap: 30px;
+}
+
+/* Table Styling */
+table.dataTable {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table.dataTable thead {
+    background-color: #007bff;
+    color: white;
+}
+
+table.dataTable th, table.dataTable td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action Buttons */
+table.dataTable .btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+table.dataTable .btn-edit {
+    background-color: #28a745;
+}
+
+table.dataTable .btn-edit:hover {
+    background-color: #218838;
+}
+
+table.dataTable .btn-delete {
+    background-color: #dc3545;
+}
+
+table.dataTable .btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-top: 30px;
+}
+
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Responsive Styling for Tables */
+@media (max-width: 768px) {
+    table.dataTable thead {
+        font-size: 14px;
+    }
+
+    table.dataTable tbody td {
+        font-size: 12px;
+    }
+}

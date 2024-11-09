@@ -1,0 +1,178 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navigation Styling */
+.top-nav {
+    background-color: #007bff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.top-nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.top-nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.top-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.top-nav ul li a:hover {
+    color: #ddd;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+#header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+}
+
+#header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Card and Table Styles */
+.card {
+    margin: 20px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+#attend-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#attend-list th, #attend-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#attend-list thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#attend-list tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Engagement Section Styles */
+#engagement-section {
+    margin: 30px 0;
+}
+
+#engagement-section h2 {
+    color: #007bff;
+    font-size: 1.8rem;
+    margin: 20px 0;
+}
+
+#discussion-forum, #poll, #qa {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#forum-input, #qa-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#poll-options {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    color: #666;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #header h1 {
+        font-size: 1.5rem;
+    }
+
+    #engagement-section h2 {
+        font-size: 1.5rem;
+    }
+}

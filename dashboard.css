@@ -1,0 +1,139 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Navigation Bar Styling */
+header {
+  background-color: #343a40;
+  padding: 15px 0;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.top-nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.top-nav a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Main Content Styling */
+main.container {
+  margin-top: 30px;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Users Count and Events Cards Layout */
+.card-body .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body .row .col-6 {
+  flex: 1;
+  padding: 10px;
+}
+
+/* Data Table Styling (Upcoming Events Table) */
+table.dataTable {
+  margin-top: 20px;
+}
+
+table.dataTable th, table.dataTable td {
+  text-align: left;
+  padding: 8px;
+}
+
+table.dataTable th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+table.dataTable td {
+  background-color: #fff;
+}
+
+table.dataTable tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Footer (Optional) */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .top-nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-body .row {
+    flex-direction: column;
+  }
+
+  .card-body .row .col-6 {
+    margin-bottom: 10px;
+  }
+}

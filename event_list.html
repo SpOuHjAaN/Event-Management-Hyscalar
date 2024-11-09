@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event List - Event Management System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="event_list.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="bg-primary text-white text-center py-4">
+    <h1>Event List</h1>
+    <nav id="navbar"></nav>
+  </header>
+
+  
+<div id="header">
+  <section id="event-discovery">
+    <h2>Search Events</h2>
+    <form id="searchForm">
+      <input type="text" name="keyword" placeholder="Keyword">
+      <input type="text" name="location" placeholder="Location">
+      <input type="date" name="date">
+      <button type="submit">Search</button>
+    </form>
+  </section>
+</div>
+
+  <!-- Event List Section -->
+  <section class="container my-5" id="event-list">
+    <div class="row" id="eventCardsContainer">
+      <!-- Event cards will be appended here by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Booking Form Overlay -->
+<div class="overlay" id="overlay" onclick="closeBookingForm()"></div>
+<div id="bookingForm" class="booking-form">
+  <div class="pricing-info">
+    <p><strong>Price per Ticket:</strong> <span id="price-per-user">$0</span></p>
+    <p><strong>Total Price:</strong> <span id="total-price">$0</span></p>
+  </div>
+  <div class="seats-info">
+    <p><strong>Number of Tickets Selected:</strong> <span id="number-of-seats">0</span></p>
+  </div>
+  <span id="error-message" class="error-message" style="color: #d9534f; font-size: 14px; font-weight: 500; display: none;"></span>
+  <button class="btn btn-primary mt-3" onclick="confirmBooking()">Confirm Booking</button>
+  <button class="btn btn-secondary mt-3" onclick="closeBookingForm()">Cancel</button>
+  <div id="paypal-button-container"></div>
+
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AUlQYt9IF0SKRJaS0nrieXZ52plmnuc-PRIn4oaZWbECkHIxs02F1hcOq5_iqAx-yP-745zU2jLUr4jc"></script>
+<script src="event_list.js"></script>
+</body>
+</html>
