@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Features</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="text-center">Event Interactive Features</h1>
+
+    <section id="discussionForum" class="my-4">
+        <h2>Discussion Forum</h2>
+        <div class="form-group">
+            <label for="eventsList">Select an Event</label>
+            <select id="eventsList" class="form-control">
+                <option value="">Select an Event</option>
+            </select>
+        </div>
+        <div class="forum-posts mb-3">
+            <!-- Forum posts will be dynamically loaded here -->
+        </div>
+        <form id="forumForm">
+            <div class="form-group">
+                <textarea id="forumMessage" class="form-control" rows="3" placeholder="Share your thoughts..."></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitForumPost()">Post</button>
+        </form>
+    </section>
+     
+
+    <!-- Live Q&A Section -->
+    <section id="liveQA" class="my-4">
+        <h2>Live Q&A</h2>
+        <div class="questions-list mb-3">
+            <!-- Questions will be dynamically loaded here -->
+        </div>
+        <form id="qaForm">
+            <div class="form-group">
+                
+                <textarea id="qaQuestion" class="form-control" rows="3" placeholder="Ask a question..."></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="submitQuestion()">Submit Question</button>
+        </form>
+    </section>
+</div>
+
+<!-- Link to the external JavaScript file -->
+<script src="feedback.js"></script>
+</body>
+</html>

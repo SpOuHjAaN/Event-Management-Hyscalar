@@ -51,54 +51,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Google Sign-In logic
-    window.onGoogleSignIn = async function (googleUser) {
-        const id_token = googleUser.credential; // Updated: Use googleUser.credential instead of getAuthResponse()
+window.onGoogleSignIn = async function (googleUser) {
+    const id_token = googleUser.credential; // Use googleUser.credential instead of getAuthResponse()
 
-        try {
-            const response = await fetch('http://localhost:3000/google-login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ token: id_token })
-            });
+    try {
+        // Send the token to your backend for validation and login
+        const response = await fetch('http://localhost:3000/google-login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: id_token })
+        });
 
-            const data = await response.json();
+        const data = await response.json();
 
-            if (response.ok) {
-                // Successfully logged in with Google
-                alert('Google login successful!');
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('userId', data.userId);
+        if (response.ok) {
+            // Successfully logged in with Google
+            alert('Google login successful!');
 
-                // Redirect user based on login type
-                if (data.isAdmin) {
-                    window.location.href = 'dashboard.html'; // Admin page
-                } else {
-                    window.location.href = 'event_list.html'; // User's event list
-                }
+            // Store user data in localStorage
+            localStorage.setItem('token', data.token);  // JWT or session token from backend
+            localStorage.setItem('userId', data.userId);  // User's ID
+
+            // Redirect user based on login type
+            if (data.isAdmin) {
+                window.location.href = 'dashboard.html'; // Admin page
             } else {
-                alert(data.message || 'Google login failed.');
+                window.location.href = 'event_list.html'; // User's event list page
             }
-        } catch (error) {
-            console.error('Google login error:', error);
-            alert('An error occurred during Google login.');
+        } else {
+            // Handle failure in the login attempt
+            alert(data.message || 'Google login failed.');
         }
-    };
+    } catch (error) {
+        console.error('Google login error:', error);
+        alert('An error occurred during Google login.');
+    }
+};
 
-    // Google Sign-In button configuration
-    gapi.load('client:auth2', function () {
-        gapi.auth2.init({
-            client_id: '354207534043-5ph7nrt5j2i19587o7iikv6jo7mak9pg.apps.googleusercontent.com' // Replace with your Google client ID
-        }).then(() => {
-            const googleSignInButton = document.getElementById('google-signin');
-            const auth2 = gapi.auth2.getAuthInstance();
+// Initialize Google Sign-In button configuration
+gapi.load('client:auth2', function () {
+    gapi.auth2.init({
+        client_id: '354207534043-5ph7nrt5j2i19587o7iikv6jo7mak9pg.apps.googleusercontent.com' // Replace with your Google client ID
+    }).then(() => {
+        const googleSignInButton = document.getElementById('google-signin');
+        const auth2 = gapi.auth2.getAuthInstance();
 
-            auth2.attachClickHandler(googleSignInButton, {}, onGoogleSignIn, (error) => {
-                alert('Google sign-in failed: ' + error.error);
-            });
+        // Attach the click handler to the Google Sign-In button
+        auth2.attachClickHandler(googleSignInButton, {}, onGoogleSignIn, function (error) {
+            alert('Google sign-in failed: ' + error.error);
         });
     });
+});
+
     // Function to dynamically update the navbar based on login state
     function updateNavbar(token) {
         // Clear current navbar content

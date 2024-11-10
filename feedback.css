@@ -1,0 +1,81 @@
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+h1 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Forum, Polls, and Q&A sections */
+section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Form textarea styling */
+textarea {
+    resize: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button.btn-primary:active {
+    background-color: #004085;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Forum posts styling */
+.forum-posts .card {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Poll options styling */
+.poll-options .form-check {
+    margin-bottom: 10px;
+}
+
+/* Q&A question styling */
+.questions-list .card {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

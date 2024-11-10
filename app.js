@@ -231,17 +231,17 @@ app.post('/google-login', async (req, res) => {
 });
 
 
-// Route to fetch all events
-app.get('/events', (req, res) => {
-  const query = 'SELECT * FROM create_events';
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Error fetching events:', err);
-      return res.status(500).json({ error: 'Failed to fetch events' });
-    }
-    res.json(results);
-  });
-});
+// // Route to fetch all events
+// app.get('/events', (req, res) => {
+//   const query = 'SELECT * FROM create_events';
+//   db.query(query, (err, results) => {
+//     if (err) {
+//       console.error('Error fetching events:', err);
+//       return res.status(500).json({ error: 'Failed to fetch events' });
+//     }
+//     res.json(results);
+//   });
+// });
 
 
 
@@ -337,9 +337,7 @@ app.post('/capture-payment', async (req, res) => {
     });
 });
 
-// CRUD Routes for events
 
-// Create an event
 // Route to create an event
 app.post("/events", (req, res) => {
   const { eventName: name, date, location, description, capacity, price, eventCategory: category } = req.body;
@@ -368,41 +366,80 @@ app.get("/events", (req, res) => {
   });
 });
 
-// Update an event by ID
-app.put("/events/:id", (req, res) => {
-  const { id } = req.params;
-  const { eventName: name, date, location, description, capacity, price, eventCategory: category } = req.body;
-  
-  const sql = "UPDATE create_events SET name = ?, date = ?, location = ?, description = ?, capacity = ?, price = ?, category = ?,  WHERE id = ?";
-  
-  db.query(sql, [name, date, location, description, capacity, price, category, id], (err, result) => {
-    if (err) {
-      console.error("Error updating event:", err);
-      return res.status(500).json({ error: "Failed to update event" });
-    }
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ message: "Event not found" });
-    }
-    res.json({ message: "Event updated successfully" });
+
+
+// POST route to create a new forum post
+app.post('/api/forum/create', (req, res) => {
+  const { message, user_id, event_id } = req.body;
+
+  if (!message || !user_id || !event_id) {
+      return res.status(400).json({ error: 'Message, user ID, and event ID are required.' });
+  }
+
+  const query = `INSERT INTO forum_posts (user_id, event_id, message, created_at) VALUES (?, ?, ?, NOW())`;
+  const values = [user_id, event_id, message];
+
+  db.query(query, values, (err, result) => {
+      if (err) {
+        console.error('Error creating forum post:', err);  
+          return res.status(500).json({ error: 'Failed to create post.' });
+      }
+      console.log('Forum post created successfully:', result);
+      res.status(200).json({ message: 'Forum post created successfully.' });
   });
 });
 
-// Delete an event by ID
-app.delete("/events/:id", (req, res) => {
-  const { id } = req.params;
-  const sql = "DELETE FROM create_events WHERE id = ?";
-  
-  db.query(sql, [id], (err, result) => {
-    if (err) {
-      console.error("Error deleting event:", err);
-      return res.status(500).json({ error: "Failed to delete event" });
-    }
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ message: "Event not found" });
-    }
-    res.json({ message: "Event deleted successfully" });
+// Route to get all posts for an event
+app.get('/forum/posts/:eventId', async (req, res) => {
+  const { eventId } = req.params;
+  try {
+      const posts = await db.query('SELECT * FROM forum_posts WHERE event_id = ?', [eventId]);
+      res.status(200).json(posts);
+  } catch (error) {
+    console.error('Error fetching posts:', error); 
+      res.status(500).json({ error: 'Failed to fetch posts' });
+  }
+});
+
+
+
+// POST method to submit a question
+app.post('/api/qa/ask', (req, res) => {
+  const { event_id, question, user_id } = req.body;
+
+  // Validation check
+  if (!event_id || !question || !user_id) {
+      return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  // SQL query to insert the question into the questions table
+  const query = `
+      INSERT INTO questions (event_id, question, user_id)
+      VALUES (?, ?, ?)
+  `;
+
+  // Execute the query
+  db.query(query, [event_id, question, user_id], (err, result) => {
+      if (err) {
+          console.error('Error inserting question:', err);
+          return res.status(500).json({ message: 'An error occurred while posting the question' });
+      }
+      return res.status(201).json({ message: 'Question posted successfully', questionId: result.insertId });
   });
 });
+
+
+// Route for organizers to view questions for an event
+app.get('/qa/questions/:eventId', async (req, res) => {
+  const { eventId } = req.params;
+  try {
+      const questions = await db.query('SELECT * FROM questions WHERE event_id = ?', [eventId]);
+      res.status(200).json(questions);
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch questions' });
+  }
+});
+
 
 // Define API endpoint to get users (excluding admin)
 app.get('/api/users', (req, res) => {
@@ -560,6 +597,49 @@ app.get('/api/attendees/:eventId', (req, res) => {
     res.json(results);
   });
 });
+
+
+//fetch feedback
+app.get('/api/events/:eventId/data', (req, res) => {
+  const eventId = req.params.eventId;
+
+  // SQL query to fetch event name, forum message, and Q&A question
+  const query = `
+    SELECT 
+        e.name, 
+        f.message, 
+        q.question
+    FROM 
+        create_events AS e
+    JOIN 
+        ticket_events te ON te.event_id = e.id
+    LEFT JOIN 
+        forum_posts AS f ON f.event_id = te.event_id
+    LEFT JOIN 
+        questions AS q ON q.event_id = te.event_id
+    WHERE 
+        e.id = ?
+  `;
+
+
+
+  // Execute the query using the connection
+  connection.query(query, [eventId], (err, results) => {
+    if (err) {
+      console.error('Database query error:', err);
+      return res.status(500).json({ error: 'Failed to fetch event data' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+
+    // Send the results as a JSON response
+    res.json(results);
+  });
+});
+
+
 
 // Start the server
 app.listen(PORT, () => {
