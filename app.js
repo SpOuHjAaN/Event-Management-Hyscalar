@@ -598,44 +598,28 @@ app.get('/api/attendees/:eventId', (req, res) => {
   });
 });
 
+// API endpoint to fetch messages and questions based on event ID
+app.get('/api/event-responses', (req, res) => {
+  const eventId = req.query.eventId;
 
-//fetch feedback
-app.get('/api/events/:eventId/data', (req, res) => {
-  const eventId = req.params.eventId;
+  if (!eventId) {
+    return res.status(400).json({ error: "Event ID is required" });
+}
 
-  // SQL query to fetch event name, forum message, and Q&A question
-  const query = `
-    SELECT 
-        e.name, 
-        f.message, 
-        q.question
-    FROM 
-        create_events AS e
-    JOIN 
-        ticket_events te ON te.event_id = e.id
-    LEFT JOIN 
-        forum_posts AS f ON f.event_id = te.event_id
-    LEFT JOIN 
-        questions AS q ON q.event_id = te.event_id
-    WHERE 
-        e.id = ?
-  `;
+const query = `
+SELECT fp.message, q.question
+FROM forum_posts AS fp
+LEFT JOIN questions AS q ON q.event_id = fp.event_id
+WHERE fp.event_id = ?
+`;
 
-
-
-  // Execute the query using the connection
-  connection.query(query, [eventId], (err, results) => {
-    if (err) {
-      console.error('Database query error:', err);
-      return res.status(500).json({ error: 'Failed to fetch event data' });
-    }
-
-    if (results.length === 0) {
-      return res.status(404).json({ error: 'Event not found' });
-    }
-
-    // Send the results as a JSON response
-    res.json(results);
+  db.query(query, [eventId], (err, results) => {
+      if (err) {
+          console.error('Error fetching data:', err);
+          res.status(500).json({ error: 'Failed to fetch data' });
+      } else {
+          res.json(results);
+      }
   });
 });
 

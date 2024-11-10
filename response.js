@@ -1,51 +1,43 @@
 $(document).ready(function() {
-    // Initialize the DataTable
-    const table = $('#eventDataTable').DataTable();
-
-    // Fetch data when the "Submit" button is clicked
-    $('#fetchDataButton').on('click', fetchEventData);
-});
-
-// Function to fetch data based on the entered event ID
-function fetchEventData() {
-    const eventId = $('#eventIdInput').val().trim();
-
-    if (!eventId) {
-        alert('Please enter an event ID.');
-        return;
-    }
-
-    // Fetch event name, forum messages, and Q&A questions for the given event ID
-    $.ajax({
-        url: `http://localhost:3000/api/events/${eventId}/data`,
-        method: 'GET',
-        success: function(eventData) {
-            if (eventData.error) {
-                alert(eventData.error);
-                return;
-            }
-
-            // Ensure eventData is in the correct format
-            if (Array.isArray(eventData) && eventData.length > 0) {
-                // Clear the existing table data
-                const table = $('#eventDataTable').DataTable();
-                table.clear();
-
-                // Populate the table with the fetched data
-                eventData.forEach(item => {
-                    table.row.add([
-                        item.name || 'N/A',  // Ensure default values if the data is missing
-                        item.message || 'N/A',
-                        item.question || 'N/A'
-                    ]).draw();
-                });
-            } else {
-                alert('No data found for the provided event ID.');
-            }
-        },
-        error: function(error) {
-            console.error('Error fetching event data:', error);
-            alert('Failed to fetch event data.');
+    // Handle Submit button click to fetch data for the specific event ID
+    $('#submit-event-id').on('click', function() {
+        const eventId = $('#event-id').val();
+        if (eventId) {
+            fetchEventResponses(eventId);
+        } else {
+            alert("Please enter a valid Event ID.");
         }
     });
-}
+
+    // Function to fetch message and question data from the backend
+    function fetchEventResponses(eventId) {
+        $.ajax({
+            url: `http://localhost:3000/api/event-responses?eventId=${eventId}`, // Adjust the endpoint as needed
+            type: 'GET',
+            success: function(data) {
+                renderResponseTable(data); // Render data to table
+            },
+            error: function(err) {
+                console.error('Error fetching responses:', err);
+                alert('There was an error fetching the responses.');
+            }
+        });
+    }
+
+    // Function to render the responses in a DataTable
+    function renderResponseTable(data) {
+        $('#response-table').DataTable().clear().destroy(); // Destroy existing DataTable instance
+        $('#response-table tbody').empty(); // Clear existing rows
+
+        data.forEach(response => {
+            const row = `<tr>
+                <td>${response.message}</td>
+                <td>${response.question}</td>
+            </tr>`;
+            $('#response-table tbody').append(row);
+        });
+
+        // Reinitialize DataTable after adding rows
+        $('#response-table').DataTable();
+    }
+});

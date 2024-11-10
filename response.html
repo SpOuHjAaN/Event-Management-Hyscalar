@@ -25,27 +25,22 @@
         </nav>
     </header>
     
-    <div class="container">
-        <h1>Event Data Display</h1>
+    <div>
+        <h1>Event Messages and Questions</h1>
+        <input type="number" id="event-id" placeholder="Enter Event ID">
+        <button id="submit-event-id">Submit</button>
+    </div>
 
-        <!-- Input for Event ID -->
-        <div style="margin-bottom: 20px;">
-            <input type="text" id="eventIdInput" placeholder="Enter Event ID" />
-            <button id="fetchDataButton">Submit</button>
-        </div>
-
-        <!-- Table for displaying event data -->
-        <table id="eventDataTable" class="display" style="width:100%">
+    <div>
+        <table id="response-table" class="display" style="width:100%">
             <thead>
                 <tr>
-                    <th>Event ID</th>
-                    <th>Event Name</th>
-                    <th>Forum Message</th>
-                    <th>Q&A Question</th>
+                    <th>Message</th>
+                    <th>Question</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Data will be dynamically added here -->
+                <!-- Data will be populated here dynamically -->
             </tbody>
         </table>
     </div>
